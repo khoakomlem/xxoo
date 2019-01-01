@@ -155,3 +155,14 @@
 	background-color: #317033;
 	cursor: pointer;
 }
+.canplay {
+	color: black;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.canplay:hover{
+	color: green;
+}
+#sanh tbody tr td{
+	text-align: center;
+}

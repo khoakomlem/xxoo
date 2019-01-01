@@ -50,7 +50,7 @@
 			<div class="container-table100">
 				<div class="wrap-table100">
 				<div class="table100 ver1 m-b-110">
-					<table data-vertable="ver1">
+					<table data-vertable="ver1" id="sanh">
 						<thead>
 							<tr class="row100 head">
 								<th class="column100 column1" data-column="column1">Chủ phòng</th>
@@ -83,9 +83,9 @@
 									$('tbody').html('');
 									for (var i in id){
 										if (board[id[i]].players==2)
-											$('tbody').append('<tr class="row100"><td class="column100 column1" data-column="column1" >'+board[id[i]].name+'</td><td class="column100 column2" data-column="column2">'+board[id[i]].room+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].text+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].players+'/2</td><td class="column100 column4" data-column="column4">'+board[id[i]].time+'</td><td class="column100 column5" data-column="column5">'+'cant play</td></tr>');
+											$('tbody').append('<tr class="row100"><td class="column100 column1" data-column="column1" >'+board[id[i]].name+'</td><td class="column100 column2" data-column="column2">'+board[id[i]].room+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].text+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].players+'/2</td><td class="column100 column4" data-column="column4">'+board[id[i]].time+'</td><td class="column100 column5" data-column="column5">'+'Fulled</td></tr>');
 										else
-											$('tbody').append('<tr class="row100"><td class="column100 column1" data-column="column1" >'+board[id[i]].name+'</td><td class="column100 column2" data-column="column2">'+board[id[i]].room+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].text+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].players+'/2</td><td class="column100 column4" data-column="column4">'+board[id[i]].time+'</td><td onclick="join(`'+board[id[i]].room+'`)" class="column100 column5" data-column="column5">'+'play</td></tr>');
+											$('tbody').append('<tr class="row100"><td class="column100 column1" data-column="column1" >'+board[id[i]].name+'</td><td class="column100 column2" data-column="column2">'+board[id[i]].room+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].text+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].players+'/2</td><td class="column100 column4" data-column="column4">'+board[id[i]].time+'</td><td class="canplay" onclick="join(`'+board[id[i]].room+'`)" class="column100 column5" data-column="column5">'+'Click Here</td></tr>');
 									}
 								});
 							</script>
