@@ -140,7 +140,7 @@
 	top: 0px;
 	right: 0px;
 	width: 10%; 
-	background-color: #4CAF50;
+	background-color: #31915e;
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -152,7 +152,7 @@
 	z-index: 10;
 }
 #error:hover{
-	background-color: #317033;
+	background-color: #4ad38a;
 	cursor: pointer;
 }
 .canplay {
@@ -164,5 +164,26 @@
 	color: green;
 }
 #sanh tbody tr td{
+	text-align: center;	
+}
+
+#exit{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 10%; 
+	background-color: #bc2b2b;
+	border: none;
+	color: white;
+	padding: 15px 32px;
 	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition: 0.2s;
+	z-index: 10;
+}
+#exit:hover{
+	background-color: #ff3535;
+	cursor: pointer;
 }

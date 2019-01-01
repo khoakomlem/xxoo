@@ -44,8 +44,6 @@ io.on('connection', function(socket){
 		io.emit('board',board,idserver);
 	});
 	socket.on('disconnect', ()=>{
-		
-		console.log(j);
 		for (var i in room){
 			if (room[i].player1==socket.id || room[i].player2==socket.id){
 				io.sockets.in(room[i].player1).emit('exit','dis');
@@ -62,6 +60,23 @@ io.on('connection', function(socket){
 			}
 		};
 	});
+	socket.on('disconnect2', ()=>{
+		for (var i in room){
+			if (room[i].player1==socket.id || room[i].player2==socket.id){
+				io.sockets.in(room[i].player1).emit('exit','dis');
+				var j=-1;
+				for (var k in idserver){
+					j++;
+					if (idserver[k]==room[i].player1){
+						idserver.splice(j,1);
+						delete board[idserver[k]];
+						break;
+					}
+				}
+				break;
+			}
+		};
+	})
 
 	socket.on('move', (x,y,id)=>{
 		

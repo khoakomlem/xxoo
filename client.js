@@ -50,6 +50,20 @@ $('#ok').click(function(){
 	$('#man2').fadeIn();
 	$('#talk').html('<p>WAITING OTHER PLAYERS . . .</p>');
 });
+$('#exit').click(function(){
+	socket.emit('disconnect2');
+	setTimeout(function(){
+		for (i=1; i<=20; i++){
+			for (j=1; j<=40; j++){
+				var t=j+' '+i;
+				document.getElementById(t).innerHTML='';
+				document.getElementById(t).style.backgroundColor='#d8d8d8';
+			}
+		}
+		$('#man1').fadeIn();
+		$('#man2').fadeOut();
+	})
+})
 var timeout;
 socket.on('message', data=>{
 	if (data=='chủ phòng will go first :P'){
@@ -93,7 +107,7 @@ socket.on('exit', (reason)=>{
 		$('#behind').css('filter','brightness(100%)');
 		$('#man1').fadeIn();
 		$('#man2').fadeOut();
-	},2000);
+},2000);
 	
 
 })
