@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CARO >:T</title>
+	<script src="sketch/lib/jquery.min.js"></script>
+	<script src="sketch/lib/p5.min.js"></script>
+	<script src="sketch/lib/socket.io.js"></script>
+</head>
+<body>
+	<script>
+		var socket=io();
+		var room;
+		function addTalk(data){
+			clearTimeout(timeout);
+			$('#talk').html('<p>'+data+'</p>');
+			timeout=setTimeout(function(){
+				$('#talk p').fadeOut();
+			},3000);
+		}
+		function run(x,y){
+			if (document.getElementById(x+' '+y).innerHTML!=''){
+				addTalk('không thể đánh đè lên!');
+				return 0;
+			}
+			socket.emit('move', x,y,room);
+			// alert(room);
+		}
+	</script>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V03</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="table/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="table/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type	="text/css" href="table/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="table/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="table/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="table/css/util.css">
+	<link rel="stylesheet" type="text/css" href="table/css/main.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<input type="submit" id="error" value="Báo Lỗi ☣">
+	<div id="man1">
+		<div id="behind">
+		<input type="submit" id='create' value="Tạo Phòng">
+		<div class="limiter">
+			<div class="container-table100">
+				<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<table data-vertable="ver1">
+						<thead>
+							<tr class="row100 head">
+								<th class="column100 column1" data-column="column1">Chủ phòng</th>
+								<th class="column100 column2" data-column="column2">ID</th>
+								<th class="column100 column3" data-column="column3">Thông điệp</th>
+								<th class="column100 column4" data-column="column4">Tình trạng</th>
+								<th class="column100 column5" data-column="column5">Giờ tạo</th>
+								<th class="column100 column5" data-column="column6">Vào</th>
+							</tr>
+						</thead>
+						<tbody>
+							<script>
+								socket.on('join failed',  ()=>{
+									alert('Phòng bạn yêu cầu hiện không thể vào!');
+								})
+								socket.on('join success', (id)=>{
+									// alert(1);
+									room=id;
+									$('#front').slideUp(10);
+									$('#behind').css('filter','brightness(100%)');
+									$('#man1').fadeOut();
+									$('#man2').fadeIn();
+								})
+								function join(id){
+									socket.emit('join',id);
+								}
+								var ngoai;
+								socket.on('board', function(board, id){
+									ngoai=board;
+									$('tbody').html('');
+									for (var i in id){
+										if (board[id[i]].players==2)
+											$('tbody').append('<tr class="row100"><td class="column100 column1" data-column="column1" >'+board[id[i]].name+'</td><td class="column100 column2" data-column="column2">'+board[id[i]].room+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].text+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].players+'/2</td><td class="column100 column4" data-column="column4">'+board[id[i]].time+'</td><td class="column100 column5" data-column="column5">'+'cant play</td></tr>');
+										else
+											$('tbody').append('<tr class="row100"><td class="column100 column1" data-column="column1" >'+board[id[i]].name+'</td><td class="column100 column2" data-column="column2">'+board[id[i]].room+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].text+'</td><td class="column100 column3" data-column="column3">'+board[id[i]].players+'/2</td><td class="column100 column4" data-column="column4">'+board[id[i]].time+'</td><td onclick="join(`'+board[id[i]].room+'`)" class="column100 column5" data-column="column5">'+'play</td></tr>');
+									}
+								});
+							</script>
+						</tbody>
+					</table>
+				</div>
+
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="front">
+			<input type="text" id="name" placeholder="Tên của bạn">
+			<!-- <select id="mode">
+				<option>:v</option>
+			</select> -->
+			<input type="text" id="text" placeholder="Dòng thông điệp">
+			<p id="close">X</p>
+			<input type="submit" id="ok" value="TẠO">
+		</div>
+	</div>
+	<div id="man2">
+		<div id="talk">
+			
+		</div>
+		<table id="ban" border="1" style="position:fixed;">
+			<script>
+				var str='';
+				for (var y=1; y<=20; y++){
+					str='';
+					for (var x=1; x<=40; x++){
+						str=str+'<td id="'+x+' '+y+'" onclick="run(' + x + ',' + y + ')"></td>';
+					}
+					$('#ban').append('<tr>'+str+'</tr>');
+					// $('#ban').append();
+					// $('#ban').append('</tr>');
+				}
+			</script>
+		</table>
+		
+	</div>
+	<script src="client.js"></script>
+</body>
+</html>
+</body>
+</html>

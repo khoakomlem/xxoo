@@ -1,0 +1,157 @@
+#create{
+	position:relative;
+	width: 100%; 
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition: 0.15s;
+}
+#create:hover{
+	background-color: #317033;
+	cursor: pointer;
+}
+#front{
+	position: fixed;
+	top:25%;
+	left: 15%;
+	border: none;
+	background-color: #4CAF50;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	width: 70%;
+	height: 50%;
+	display: none;
+}
+
+#ok{
+	position: absolute;
+	top: 40%;
+	right: 10px;
+	width: 20%; 
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition: 0.15s;
+	filter: brightness(50%);
+}
+#ok:hover{
+	background-color: #317033;
+	cursor: pointer;
+}
+#behind{
+	transition: 0.5s;
+}
+#name,#text,#mode{
+	border-radius: 5px 5px 5px 5px;
+	position: relative;
+	left: 40%;
+	text-align: center;
+}
+
+#name{
+	top: 40%
+}
+#text{
+	top: 45%;
+}
+#close{
+	position: relative;
+	top: -20%;
+	left: 50%;
+	color: white;
+	font-size: 25px;
+	transition: 0.1s;
+}
+#close:hover{
+	cursor: pointer;;
+	color: red;
+}
+#man2{
+	display:none;
+	height: 100%;
+	width: 100%;
+	background-color: #d8d8d8;
+}
+#ban{
+	position: relative;
+	top: 17%;
+	width: 100%;
+	height: 83%;
+	border-color: #8e9299;
+	background-color: #d8d8d8;
+	word-wrap:normal;
+	border-width: 2px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	padding:0; margin:0;
+}
+
+#ban tr{
+	padding:0; margin:0;
+}
+#ban td{
+	border: 2px solid #8e9299;
+	word-wrap: normal ;
+	font-family: cursive;
+	text-align: center;
+	overflow: hidden;
+	padding:0; margin:0;
+	vertical-align:top
+}
+
+#ban td p{
+	position:absolute;
+}
+
+#ban td:hover{
+	cursor: pointer;
+	background-color: #62c162;
+}
+
+#talk{
+	background-color: currentColor;
+	text-align: center;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 20%;
+}
+
+#talk p{
+	color: white;
+	padding: 30px;
+}
+
+
+#error{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 10%; 
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition: 0.2s;
+	z-index: 10;
+}
+#error:hover{
+	background-color: #317033;
+	cursor: pointer;
+}
