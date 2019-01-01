@@ -97,10 +97,3 @@ socket.on('exit', (reason)=>{
 	
 
 })
-
-socket.on('ketqua', (data)=>{
-	if (data='player1')
-		alert('Chủ phòng thắng :D');
-	else
-		alert('Chủ phòng thua :D');
-})
