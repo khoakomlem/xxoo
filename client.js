@@ -31,6 +31,14 @@ $('#ok').click(function(){
 	if ($('#name').val()=='' || $('#text').val()==''){
 		return 0;
 	}
+	if ($('#name').val().length>30){
+		alert('Tên quá dài >:T');
+		return 0;
+	}
+	if ($('#text').val().length>30){
+		alert('Thông điêp quá dài :D');
+		return 0;
+	}
 	var today = new Date();
 	var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -110,4 +118,8 @@ socket.on('exit', (reason)=>{
 },2000);
 	
 
+})
+
+socket.on('players', data=>{
+	$('#playercount').html(data+" online(s)!")
 })

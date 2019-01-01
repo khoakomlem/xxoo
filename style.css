@@ -16,6 +16,7 @@
 	cursor: pointer;
 }
 #front{
+	border: double;
 	position: fixed;
 	top:25%;
 	left: 15%;
@@ -60,14 +61,14 @@
 }
 
 #name{
-	top: 40%
+	top: 23%
 }
 #text{
-	top: 45%;
+	top: 28%;
 }
 #close{
 	position: relative;
-	top: -20%;
+	top: -35%;
 	left: 50%;
 	color: white;
 	font-size: 25px;
@@ -186,4 +187,13 @@
 #exit:hover{
 	background-color: #ff3535;
 	cursor: pointer;
+}
+#playercount{
+	position: fixed;
+	color: red;
+	font-size: 20px;
+	bottom: 5px;
+	right: 5px;
+	z-index: 2;
+	border: double;
 }

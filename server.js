@@ -301,5 +301,5 @@ http.listen(port, function(){
 });
 setInterval(function(){
 	io.emit('board',board,idserver);
-	// console.log(id);
+	io.emit('players', io.engine.clientsCount);
 },1000);
