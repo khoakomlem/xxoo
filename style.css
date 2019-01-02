@@ -101,7 +101,7 @@
 #ban tr{
 	padding:0; margin:0;
 }
-#ban td{
+#ban tr td{
 	border: 2px solid #8e9299;
 	word-wrap: normal ;
 	font-family: cursive;
@@ -111,11 +111,11 @@
 	vertical-align:top
 }
 
-#ban td p{
+#ban tr td p{
 	position:absolute;
 }
 
-#ban td:hover{
+#ban tr td:hover{
 	cursor: pointer;
 	background-color: #62c162;
 }
