@@ -128,8 +128,9 @@ io.on('connection', function(socket){
 					chainx=0;
 					chaino=0;
 				}
-				if (chainx>=5)
+				if (chainx>=5){
 					io.sockets.in(id).emit('ketqua','player1');
+				}
 				if (chaino>=5)
 					io.sockets.in(id).emit('ketqua','player2');
 				if (chainx>=5 || chaino>=5){
@@ -280,7 +281,15 @@ io.on('connection', function(socket){
 		}
 
 	});
-
+	socket.on('quit', (id)=>{
+		socket.leave(id);
+		for (var i in room){
+			if (room[i].player1==id){
+				room[i].player1='';
+				room[i].player2='';
+			}
+		}	
+	})
 	socket.on('join', id=>{
 		
 		if (room[id].player2==''){

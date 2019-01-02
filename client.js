@@ -121,5 +121,6 @@ socket.on('exit', (reason)=>{
 })
 
 socket.on('players', data=>{
-	$('#playercount').html(data+" online(s)!")
+	$('#playercount').html(data+" online(s)!");
+	socket.emit('quit', room);
 })
