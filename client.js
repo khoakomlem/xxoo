@@ -1,10 +1,3 @@
-var package={
-	name:'',
-	mode:1,
-	text:'',
-	players:1,
-	time:''
-}
 var lastid='1 1';
 var timeout;
 function addTalk(data){
