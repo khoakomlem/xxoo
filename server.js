@@ -14,7 +14,7 @@ var text=[];
 var danh=[];
 function make2DArray(col, row, vf){
 	var arr=new Array(col);
-	for (var m=0; m<col; m++){
+	for (let m=0; m<col; m++){
 		arr[m]=new Array(row);
 		arr[m].fill(vf);
 	}
@@ -44,11 +44,11 @@ io.on('connection', function(socket){
 		io.emit('board',board,idserver);
 	});
 	socket.on('disconnect', ()=>{
-		for (var i in room){
+		for (let i in room){
 			if (room[i].player1==socket.id || room[i].player2==socket.id){
 				io.sockets.in(room[i].player1).emit('exit','dis');
 				var j=-1;
-				for (var k in idserver){
+				for (let k in idserver){
 					j++;
 					if (idserver[k]==room[i].player1){
 						idserver.splice(j,1);
@@ -61,11 +61,11 @@ io.on('connection', function(socket){
 		};
 	});
 	socket.on('disconnect2', ()=>{
-		for (var i in room){
+		for (let i in room){
 			if (room[i].player1==socket.id || room[i].player2==socket.id){
 				io.sockets.in(room[i].player1).emit('exit','dis');
 				var j=-1;
-				for (var k in idserver){
+				for (let k in idserver){
 					j++;
 					if (idserver[k]==room[i].player1){
 						idserver.splice(j,1);
@@ -81,7 +81,8 @@ io.on('connection', function(socket){
 	socket.on('move', (x,y,id)=>{
 		
 		try{
-		check[id][y][x]=text[socket.id];
+		if (check[id][x][y]=='none')
+			check[id][y][x]=text[socket.id];
 		if (danh[socket.id]==false){
 			return 0;
 		}
@@ -129,7 +130,7 @@ io.on('connection', function(socket){
 				if (chainx>=5 || chaino>=5){
 					io.sockets.in(id).emit('exit','end');
 					var j=-1;
-					for (var k in idserver){
+					for (let k in idserver){
 						j++;
 						if (idserver[k]==id){
 							idserver.splice(j,1);
@@ -167,7 +168,7 @@ io.on('connection', function(socket){
 				if (chainx>=5 || chaino>=5){
 					io.sockets.in(id).emit('exit','end');
 					var j=-1;
-					for (var k in idserver){
+					for (let k in idserver){
 						j++;
 						if (idserver[k]==id){
 							idserver.splice(j,1);
@@ -212,7 +213,7 @@ io.on('connection', function(socket){
 				if (chainx>=5 || chaino>=5){
 					io.sockets.in(id).emit('exit','end');
 					var j=-1;
-					for (var k in idserver){
+					for (let k in idserver){
 						j++;
 						if (idserver[k]==id){
 							idserver.splice(j,1);
@@ -257,7 +258,7 @@ io.on('connection', function(socket){
 				if (chainx>=5 || chaino>=5){
 					io.sockets.in(id).emit('exit','end');
 					var j=-1;
-					for (var k in idserver){
+					for (let k in idserver){
 						j++;
 						if (idserver[k]==id){
 							idserver.splice(j,1);
