@@ -55,6 +55,9 @@ io.on('connection', function(socket){
 						delete board[idserver[k]];
 						break;
 					}
+					socket.leave(room[i].player1);
+					room[i].player1='';
+					room[i].player2='';
 				}
 				break;
 			}
@@ -72,6 +75,9 @@ io.on('connection', function(socket){
 						delete board[idserver[k]];
 						break;
 					}
+					socket.leave(room[i].player1);
+					room[i].player1='';
+					room[i].player2='';
 				}
 				break;
 			}
