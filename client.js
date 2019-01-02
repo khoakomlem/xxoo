@@ -25,7 +25,7 @@ $('#close').click(function(){
 })
 $('#error').click(function(){
 	alert('Vui lòng chụp ảnh màn hình lỗi và gửi cho tui mau !! >:3');
-	window.open('http://www.facebook.com/nghienpascal', '_blank');
+	window.open('https://www.facebook.com/hotroxxoo/', '_blank');
 });
 $('#ok').click(function(){
 	if ($('#name').val()=='' || $('#text').val()==''){
